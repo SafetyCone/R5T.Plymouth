@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\R5T.Herulia\source\R5T.Herulia.Extensions\R5T.Herulia.Extensions.csproj" />
+    <ProjectReference Include="..\R5T.Plymouth\R5T.Plymouth.csproj" />
+  </ItemGroup>
+
+</Project>
