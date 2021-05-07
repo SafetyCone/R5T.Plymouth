@@ -10,7 +10,13 @@ namespace R5T.Plymouth.Construction
     {
         static Task Main(string[] args)
         {
-            return Program.RunServiceProvider();
+            //return Program.RunServiceProvider();
+            return Program.RunProgramAsAService();
+        }
+
+        private static Task RunProgramAsAService()
+        {
+            return ProgramAsAService.SubMain();
         }
 
         private static async Task RunServiceProvider()
@@ -22,8 +28,8 @@ namespace R5T.Plymouth.Construction
             {
                 var dummyService = serviceProvider.GetRequiredService<DummyService>();
 
-                dummyService.SayHello();
-                dummyService.LogInformationHello();
+                await dummyService.SayHello();
+                await dummyService.LogInformationHello();
             }
         }
     }

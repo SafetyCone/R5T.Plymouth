@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\R5T.Hostia\source\R5T.Hostia.Extensions\R5T.Hostia.Extensions.csproj" />
     <ProjectReference Include="..\R5T.Plymouth.Host\R5T.Plymouth.Host.csproj" />
+    <ProjectReference Include="..\R5T.Plymouth.Startup\R5T.Plymouth.Startup.csproj" />
     <ProjectReference Include="..\R5T.Plymouth\R5T.Plymouth.csproj" />
   </ItemGroup>
 

@@ -3,10 +3,13 @@ using System.Threading.Tasks;
 
 using Microsoft.Extensions.Hosting;
 
+using R5T.Plymouth.Host;
+
+using HostBuilder = R5T.Plymouth.Host.HostBuilder;
 using IMicrosoftHostBuilder = Microsoft.Extensions.Hosting.IHostBuilder;
 
 
-namespace R5T.Plymouth.Host
+namespace R5T.Plymouth
 {
     public static class IApplicationSpecificationExtensions
     {

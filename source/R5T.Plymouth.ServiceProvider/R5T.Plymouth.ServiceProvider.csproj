@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\R5T.Plymouth.Startup\R5T.Plymouth.Startup.csproj" />
     <ProjectReference Include="..\R5T.Plymouth\R5T.Plymouth.csproj" />
   </ItemGroup>
 

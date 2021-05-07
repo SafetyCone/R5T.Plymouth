@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 namespace R5T.Plymouth.ProgramAsAService
 {
     // Hosted service program implemented using background service for simplicity and ease of use provided by the background service base class.
-    public abstract class ProgramAsAServiceBase : BackgroundService
+    public abstract class ProgramAsAServiceBase : BackgroundService, IProgramAsAService
     {
         private IApplicationLifetime ApplicationLifetime { get; }
 

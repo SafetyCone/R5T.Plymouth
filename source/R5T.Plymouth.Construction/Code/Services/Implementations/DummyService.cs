@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 using Microsoft.Extensions.Logging;
+
 
 namespace R5T.Plymouth.Construction
 {
@@ -15,14 +17,18 @@ namespace R5T.Plymouth.Construction
             this.Logger = logger;
         }
 
-        public void SayHello()
+        public Task SayHello()
         {
             Console.WriteLine("Hello!");
+
+            return Task.CompletedTask;
         }
 
-        public void LogInformationHello()
+        public Task LogInformationHello()
         {
             this.Logger.LogInformation("Hello!");
+
+            return Task.CompletedTask;
         }
     }
 }

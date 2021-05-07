@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 
 
-namespace R5T.Plymouth.Host
+namespace R5T.Plymouth
 {
     public static class IHostExtensions
     {
