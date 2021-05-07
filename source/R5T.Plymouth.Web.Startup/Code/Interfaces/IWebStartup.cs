@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+using R5T.Plymouth.Startup;
+
 using IAspNetCoreApplicationBuilder = Microsoft.AspNetCore.Builder.IApplicationBuilder;
 
 
-namespace R5T.Plymouth
+namespace R5T.Plymouth.Web.Startup
 {
     /// <summary>
     /// Representation for an object that configures a configuration, service collection, and middleware pipeline.

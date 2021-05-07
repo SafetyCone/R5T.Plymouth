@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 
 
-namespace R5T.Plymouth
+namespace R5T.Plymouth.Web.Startup
 {
-    public class WebStartup : Startup, IWebStartup
+    public class WebStartup : Plymouth.Startup.Startup, IWebStartup
     {
         /// <summary>
         /// When overridden, startup base methods should always be called as the first line of the override method.

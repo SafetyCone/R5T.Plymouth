@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+using R5T.Plymouth.ServiceProvider;
+
 using MicrosoftServiceProvider = Microsoft.Extensions.DependencyInjection.ServiceProvider;
 
 
-namespace R5T.Plymouth.ServiceProvider
+namespace R5T.Plymouth
 {
     public static class IApplicationSpecificationExtensions
     {

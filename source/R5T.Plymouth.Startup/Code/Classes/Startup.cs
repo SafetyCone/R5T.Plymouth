@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using R5T.Dacia;
 
 
-namespace R5T.Plymouth
+namespace R5T.Plymouth.Startup
 {
     public class Startup : IStartup
     {
