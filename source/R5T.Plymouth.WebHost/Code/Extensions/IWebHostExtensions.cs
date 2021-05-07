@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
 
-namespace R5T.Plymouth.WebHost
+namespace R5T.Plymouth
 {
     public static class IWebHostExtensions
     {

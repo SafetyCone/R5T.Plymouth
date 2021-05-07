@@ -5,8 +5,11 @@ using Microsoft.AspNetCore.Builder;
 
 using R5T.Dacia;
 
+using R5T.Plymouth.Web;
+using R5T.Plymouth.Web.Startup;
 
-namespace R5T.Plymouth.Web.Startup.Code.Extensions
+
+namespace R5T.Plymouth
 {
     public static class IWebApplicationSpecificationExtensions
     {

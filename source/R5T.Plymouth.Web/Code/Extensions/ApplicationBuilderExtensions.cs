@@ -1,7 +1,9 @@
 ﻿using System;
 
+using R5T.Plymouth.Web;
 
-namespace R5T.Plymouth.Web
+
+namespace R5T.Plymouth
 {
     public static class ApplicationBuilderExtensions
     {

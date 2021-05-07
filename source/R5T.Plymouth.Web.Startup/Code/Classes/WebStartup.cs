@@ -12,7 +12,7 @@ namespace R5T.Plymouth.Web.Startup
         /// When overridden, startup base methods should always be called as the first line of the override method.
         /// However, this base method does nothing.
         /// </summary>
-        public Task Configure(IApplicationBuilder applicationBuilder, IServiceProvider startupServiceProvider)
+        public virtual Task Configure(IApplicationBuilder applicationBuilder, IServiceProvider startupServiceProvider)
         {
             // Do nothing.
 

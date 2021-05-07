@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.Hosting;
 
 using R5T.Plymouth.Web;
 
+using WebHostBuilder = R5T.Plymouth.WebHost.WebHostBuilder;
 
-namespace R5T.Plymouth.WebHost
+
+namespace R5T.Plymouth
 {
     public static class IWebApplicationSpecificationExtensions
     {
