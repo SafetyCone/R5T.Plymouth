@@ -30,6 +30,7 @@ namespace R5T.Plymouth.ProgramAsAService
             {
                 await this.ServiceMain(stoppingToken);
             }
+            // Should do some exception logging or otherwise report the error, maybe a custom exception type that we can stop on?
             finally
             {
                 // Stop the application when it is done.
