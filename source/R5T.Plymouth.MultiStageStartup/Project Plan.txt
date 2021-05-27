@@ -1,4 +1,0 @@
-R5T.Plymouth.MultiStageStartup - Multi-stage application startup functionality.
-
-Goals
-

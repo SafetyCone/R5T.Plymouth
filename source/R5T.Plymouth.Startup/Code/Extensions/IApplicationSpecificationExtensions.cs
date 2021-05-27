@@ -8,12 +8,17 @@ using R5T.Dacia;
 
 using R5T.Plymouth.Startup;
 
+using MicrosoftServiceProvider = Microsoft.Extensions.DependencyInjection.ServiceProvider;
+
 
 namespace R5T.Plymouth
 {
     public static class IApplicationSpecificationExtensions
     {
-        public static IApplicationSpecification UseStartup(this IApplicationSpecification applicationSpecification, IStartup startup, IServiceProvider startupServiceProvider)
+        #region Synchronous
+
+        public static TApplicationSpecification UseStartupSynchronous<TApplicationSpecification>(this TApplicationSpecification applicationSpecification, IStartup startup, IServiceProvider startupServiceProvider)
+            where TApplicationSpecification : IApplicationSpecification
         {
             Task ConfigureConfiguration(IConfigurationBuilder configurationBuilder)
             {
@@ -30,23 +35,81 @@ namespace R5T.Plymouth
             return applicationSpecification;
         }
 
-        public static IApplicationSpecification UseStartup<TStartup>(this IApplicationSpecification applicationSpecification, IServiceProvider startupServiceProvider)
+        public static TApplicationSpecification UseStartupSynchronous<TApplicationSpecification, TStartup>(this TApplicationSpecification applicationSpecification, IServiceProvider startupServiceProvider)
+            where TApplicationSpecification : IApplicationSpecification
             where TStartup : class, IStartup
         {
             var startup = ServiceProviderHelper.GetInstanceOfType<TStartup>();
 
-            applicationSpecification.UseStartup(startup, startupServiceProvider);
+            applicationSpecification.UseStartupSynchronous(startup, startupServiceProvider);
 
             return applicationSpecification;
         }
 
-        public static IApplicationSpecification UseStartup<TStartup>(this IApplicationSpecification applicationSpecification)
+        public static TApplicationSpecification UseStartupSynchronous<TApplicationSpecification, TStartup>(this TApplicationSpecification applicationSpecification)
+            where TApplicationSpecification : IApplicationSpecification
             where TStartup : class, IStartup
         {
             using (var emptyServiceProvider = ServiceProviderHelper.GetNewEmptyServiceProvider())
             {
-                return applicationSpecification.UseStartup<TStartup>(emptyServiceProvider);
+                return applicationSpecification.UseStartupSynchronous<TApplicationSpecification, TStartup>(emptyServiceProvider);
             }
         }
+
+        #endregion
+
+        #region Asynchronous-by-Default
+
+        public static async Task<TApplicationSpecification> UseStartup<TApplicationSpecification>(this Task<TApplicationSpecification> gettingApplicationSpecification, IStartup startup, IServiceProvider startupServiceProvider)
+            where TApplicationSpecification : IApplicationSpecification
+        {
+            var applicationSpecification = await gettingApplicationSpecification;
+
+            return applicationSpecification.UseStartupSynchronous(startup, startupServiceProvider);
+        }
+
+        public static async Task<TApplicationSpecification> UseStartup<TApplicationSpecification, TStartup>(this Task<TApplicationSpecification> gettingApplicationSpecification, IServiceProvider startupServiceProvider)
+            where TApplicationSpecification : IApplicationSpecification
+            where TStartup : class, IStartup
+        {
+            var applicationSpecification = await gettingApplicationSpecification;
+
+            return applicationSpecification.UseStartupSynchronous<TApplicationSpecification, TStartup>(startupServiceProvider);
+        }
+
+        public static async Task<TApplicationSpecification> UseStartup<TApplicationSpecification, TStartup>(this Task<TApplicationSpecification> gettingApplicationSpecification)
+            where TApplicationSpecification : IApplicationSpecification
+            where TStartup : class, IStartup
+        {
+            var applicationSpecification = await gettingApplicationSpecification;
+
+            return applicationSpecification.UseStartupSynchronous<TApplicationSpecification, TStartup>();
+        }
+
+        #endregion
+
+        #region IApplicationSpecification Specific
+
+        public static Task<IApplicationSpecification> UseStartup<TStartup>(this Task<IApplicationSpecification> gettingApplicationSpecification, IServiceProvider startupServiceProvider)
+            where TStartup : class, IStartup
+        {
+            return gettingApplicationSpecification.UseStartup<IApplicationSpecification, TStartup>(startupServiceProvider);
+        }
+
+        public static async Task<IApplicationSpecification> UseStartup<TStartup>(this Task<IApplicationSpecification> gettingApplicationSpecification, Task<MicrosoftServiceProvider> gettingStartupServiceProvider)
+            where TStartup : class, IStartup
+        {
+            var startupServiceProvider = await gettingStartupServiceProvider;
+
+            return await gettingApplicationSpecification.UseStartup<TStartup>(startupServiceProvider);
+        }
+
+        public static Task<IApplicationSpecification> UseStartup<TStartup>(this Task<IApplicationSpecification> gettingApplicationSpecification)
+            where TStartup : class, IStartup
+        {
+            return gettingApplicationSpecification.UseStartup<IApplicationSpecification, TStartup>();
+        }
+
+        #endregion
     }
 }

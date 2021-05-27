@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using R5T.Chamavia;
 using R5T.Dacia;
 
+using R5T.Plymouth.Startup;
+
 using MicrosoftServiceProvider = Microsoft.Extensions.DependencyInjection.ServiceProvider;
 
 
@@ -20,6 +22,31 @@ namespace R5T.Plymouth.ServiceProvider
         {
             var output = new ServiceProviderBuilder();
             return output;
+        }
+
+        public static Task<MicrosoftServiceProvider> UseStartup<TStartup>(IServiceProvider startupServiceProvider)
+            where TStartup : class, IStartup
+        {
+            return ApplicationBuilder.Instance
+                .NewApplication()
+                .UseStartup<TStartup>(startupServiceProvider)
+                .BuildServiceProvider();
+        }
+
+        public static Task<MicrosoftServiceProvider> UseStartup<TStartup>()
+            where TStartup : class, IStartup
+        {
+            var emptyServiceProvider = ServiceProviderHelper.GetNewEmptyServiceProvider();
+
+            return ServiceProviderBuilder.UseStartup<TStartup>(emptyServiceProvider);
+        }
+
+        public static async Task<MicrosoftServiceProvider> UseStartup<TStartup>(Task<MicrosoftServiceProvider> gettingStartupServiceProvider)
+            where TStartup: class, IStartup
+        {
+            var startupServiceProvider = await gettingStartupServiceProvider;
+
+            return await ServiceProviderBuilder.UseStartup<TStartup>(startupServiceProvider);
         }
 
         #endregion
