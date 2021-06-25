@@ -15,7 +15,7 @@ namespace R5T.Plymouth.Startup
         /// When overridden, startup base methods should always be called as the first line of the override method.
         /// However, this base method does nothing.
         /// </summary>
-        public virtual Task ConfigureConfiguration(IConfigurationBuilder configurationBuilder, IServiceProvider startupServiceProvider)
+        public virtual Task ConfigureConfiguration(IConfigurationBuilder configurationBuilder, IServiceProvider startupServicesProvider)
         {
             // Do nothing.
 
@@ -26,7 +26,7 @@ namespace R5T.Plymouth.Startup
         /// When overridden, startup base methods should always be called as the first line of the override method.
         /// However, this base method does nothing.
         /// </summary>
-        public virtual Task ConfigureServices(IServiceCollection services, IServiceAction<IConfiguration> configurationAction, IServiceProvider startupServiceProvider)
+        public virtual Task ConfigureServices(IServiceCollection services, IServiceAction<IConfiguration> configurationAction, IServiceProvider startupServicesProvider)
         {
             // Do nothing.
 
