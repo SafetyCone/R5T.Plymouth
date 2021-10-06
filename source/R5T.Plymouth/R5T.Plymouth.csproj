@@ -6,6 +6,5 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\R5T.Chamavia.Extensions\source\R5T.Chamavia.Extensions\R5T.Chamavia.Extensions.csproj" />
-    <ProjectReference Include="..\..\..\R5T.Dacia.Extensions\source\R5T.Dacia.Extensions\R5T.Dacia.Extensions.csproj" />
   </ItemGroup>
 </Project>
