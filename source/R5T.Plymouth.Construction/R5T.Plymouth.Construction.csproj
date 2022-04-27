@@ -10,6 +10,7 @@
     <ProjectReference Include="..\..\..\R5T.Langobard.Extensions\source\R5T.Langobard.Extensions\R5T.Langobard.Extensions.csproj" />
     <ProjectReference Include="..\R5T.Plymouth.ProgramAsAService\R5T.Plymouth.ProgramAsAService.csproj" />
     <ProjectReference Include="..\R5T.Plymouth.ServiceProvider\R5T.Plymouth.ServiceProvider.csproj" />
+    <ProjectReference Include="..\..\..\R5T.T0064\source\R5T.T0064\R5T.T0064.csproj" />
   </ItemGroup>
 
   <ItemGroup>

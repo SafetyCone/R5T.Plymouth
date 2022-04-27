@@ -1,12 +1,15 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 
 using Microsoft.Extensions.Logging;
 
+using R5T.T0064;
+
 
 namespace R5T.Plymouth.Construction
 {
-    public class DummyService
+    [ServiceImplementationMarker]
+    public class DummyService: INoServiceDefinition, IServiceImplementation
     {
         private ILogger Logger { get; }
 
