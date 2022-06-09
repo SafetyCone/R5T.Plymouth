@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1591;1573</NoWarn>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\..\R5T.Hostia\source\R5T.Hostia.Extensions\R5T.Hostia.Extensions.csproj" />
     <ProjectReference Include="..\R5T.Plymouth.ServiceProvider\R5T.Plymouth.ServiceProvider.csproj" />
   </ItemGroup>
-
 </Project>
